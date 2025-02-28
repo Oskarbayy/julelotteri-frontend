@@ -1,3 +1,3 @@
-# julelotteri_app
+# julelotteri_frontend
 
 A new Flutter project.
