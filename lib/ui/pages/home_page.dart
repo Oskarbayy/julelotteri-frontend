@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
           flex: 4,
           child: Container(
             margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: const Color.fromARGB(
                   255, 49, 176, 49), // Christmas green background
