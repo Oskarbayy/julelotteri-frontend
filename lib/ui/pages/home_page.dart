@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:julelotteri_app/ui/components/scaled_grid.dart';
+import 'package:julelotteri_frontend/controller/lotteri_controller.dart';
+import 'package:julelotteri_frontend/ui/components/scaled_grid.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,8 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> items = List.generate(100, (index) => '${index + 1}');
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -51,7 +50,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            child: ScaledGrid(items: items),
+            // Pass the ValueNotifier to ScaledGrid.
+            child: ScaledGrid(items: LotteriController.instance.players),
           ),
         )
       ],

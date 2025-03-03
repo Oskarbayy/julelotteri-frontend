@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:julelotteri_app/controller/lotteri_controller.dart';
+import 'package:julelotteri_frontend/controller/lotteri_controller.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key}) : super(key: key);
@@ -15,20 +15,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 50,
       actions: [
         IconButton(
-            icon: const Icon(
-              Icons.play_arrow,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              LotteriController.instance.onPlayPressed();
-            }),
-        IconButton(
           icon: const Icon(
-            Icons.settings,
+            Icons.play_arrow,
             color: Colors.white,
           ),
           onPressed: () {
-            // TODO: Implement settings functionality.
+            LotteriController.instance.onPlayPressed();
+          },
+        ),
+        IconButton(
+          icon: const Icon(
+            Icons.arrow_upward,
+            color: Colors.white,
+          ),
+          onPressed: () async {
+            LotteriController.instance.initFilePicker();
           },
         ),
       ],

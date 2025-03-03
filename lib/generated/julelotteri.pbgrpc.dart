@@ -30,20 +30,27 @@ class LotteriServiceClient extends $grpc.Client {
       '/julelotteri.LotteriService/GetPlayers',
       ($0.Empty value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.PlayerList.fromBuffer(value));
+  static final _$importExcelFile = $grpc.ClientMethod<$1.ImportExcelFileRequest, $1.ImportExcelFileResponse>(
+      '/julelotteri.LotteriService/ImportExcelFile',
+      ($1.ImportExcelFileRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.ImportExcelFileResponse.fromBuffer(value));
 
   LotteriServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
-      : super(channel, options: options, interceptors: interceptors);
+      : super(channel, options: options,
+        interceptors: interceptors);
 
-  $grpc.ResponseFuture<$1.Player> getWinner($0.Empty request,
-      {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Player> getWinner($0.Empty request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getWinner, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.PlayerList> getPlayers($0.Empty request,
-      {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.PlayerList> getPlayers($0.Empty request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPlayers, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.ImportExcelFileResponse> importExcelFile($1.ImportExcelFileRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$importExcelFile, request, options: options);
   }
 }
 
@@ -66,19 +73,28 @@ abstract class LotteriServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
         ($1.PlayerList value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.ImportExcelFileRequest, $1.ImportExcelFileResponse>(
+        'ImportExcelFile',
+        importExcelFile_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.ImportExcelFileRequest.fromBuffer(value),
+        ($1.ImportExcelFileResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$1.Player> getWinner_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
+  $async.Future<$1.Player> getWinner_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
     return getWinner(call, await request);
   }
 
-  $async.Future<$1.PlayerList> getPlayers_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
+  $async.Future<$1.PlayerList> getPlayers_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
     return getPlayers(call, await request);
   }
 
+  $async.Future<$1.ImportExcelFileResponse> importExcelFile_Pre($grpc.ServiceCall call, $async.Future<$1.ImportExcelFileRequest> request) async {
+    return importExcelFile(call, await request);
+  }
+
   $async.Future<$1.Player> getWinner($grpc.ServiceCall call, $0.Empty request);
-  $async.Future<$1.PlayerList> getPlayers(
-      $grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$1.PlayerList> getPlayers($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$1.ImportExcelFileResponse> importExcelFile($grpc.ServiceCall call, $1.ImportExcelFileRequest request);
 }

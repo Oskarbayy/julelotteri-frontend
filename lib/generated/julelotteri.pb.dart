@@ -17,6 +17,7 @@ class Player extends $pb.GeneratedMessage {
   factory Player({
     $core.int? id,
     $core.String? name,
+    $core.bool? won,
   }) {
     final $result = create();
     if (id != null) {
@@ -24,6 +25,9 @@ class Player extends $pb.GeneratedMessage {
     }
     if (name != null) {
       $result.name = name;
+    }
+    if (won != null) {
+      $result.won = won;
     }
     return $result;
   }
@@ -34,6 +38,7 @@ class Player extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Player', package: const $pb.PackageName(_omitMessageNames ? '' : 'julelotteri'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aOB(3, _omitFieldNames ? '' : 'won')
     ..hasRequiredFields = false
   ;
 
@@ -75,6 +80,15 @@ class Player extends $pb.GeneratedMessage {
   $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
   void clearName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get won => $_getBF(2);
+  @$pb.TagNumber(3)
+  set won($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasWon() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearWon() => clearField(3);
 }
 
 class PlayerList extends $pb.GeneratedMessage {
@@ -119,6 +133,106 @@ class PlayerList extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<Player> get players => $_getList(0);
+}
+
+class ImportExcelFileRequest extends $pb.GeneratedMessage {
+  factory ImportExcelFileRequest({
+    $core.List<$core.int>? fileData,
+  }) {
+    final $result = create();
+    if (fileData != null) {
+      $result.fileData = fileData;
+    }
+    return $result;
+  }
+  ImportExcelFileRequest._() : super();
+  factory ImportExcelFileRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ImportExcelFileRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ImportExcelFileRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'julelotteri'), createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'fileData', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ImportExcelFileRequest clone() => ImportExcelFileRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ImportExcelFileRequest copyWith(void Function(ImportExcelFileRequest) updates) => super.copyWith((message) => updates(message as ImportExcelFileRequest)) as ImportExcelFileRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ImportExcelFileRequest create() => ImportExcelFileRequest._();
+  ImportExcelFileRequest createEmptyInstance() => create();
+  static $pb.PbList<ImportExcelFileRequest> createRepeated() => $pb.PbList<ImportExcelFileRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ImportExcelFileRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ImportExcelFileRequest>(create);
+  static ImportExcelFileRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get fileData => $_getN(0);
+  @$pb.TagNumber(1)
+  set fileData($core.List<$core.int> v) { $_setBytes(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasFileData() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFileData() => clearField(1);
+}
+
+class ImportExcelFileResponse extends $pb.GeneratedMessage {
+  factory ImportExcelFileResponse({
+    $core.bool? success,
+  }) {
+    final $result = create();
+    if (success != null) {
+      $result.success = success;
+    }
+    return $result;
+  }
+  ImportExcelFileResponse._() : super();
+  factory ImportExcelFileResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ImportExcelFileResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ImportExcelFileResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'julelotteri'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'success')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ImportExcelFileResponse clone() => ImportExcelFileResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ImportExcelFileResponse copyWith(void Function(ImportExcelFileResponse) updates) => super.copyWith((message) => updates(message as ImportExcelFileResponse)) as ImportExcelFileResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ImportExcelFileResponse create() => ImportExcelFileResponse._();
+  ImportExcelFileResponse createEmptyInstance() => create();
+  static $pb.PbList<ImportExcelFileResponse> createRepeated() => $pb.PbList<ImportExcelFileResponse>();
+  @$core.pragma('dart2js:noInline')
+  static ImportExcelFileResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ImportExcelFileResponse>(create);
+  static ImportExcelFileResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get success => $_getBF(0);
+  @$pb.TagNumber(1)
+  set success($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasSuccess() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSuccess() => clearField(1);
 }
 
 

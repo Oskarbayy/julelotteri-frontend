@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:julelotteri_app/ui/components/custom_appbar.dart';
-import 'package:julelotteri_app/ui/pages/home_page.dart';
+import 'package:julelotteri_frontend/ui/pages/home_page.dart';
+import 'package:julelotteri_frontend/ui/components/custom_appbar.dart';
 
 void main() {
   runApp(const MainApp());

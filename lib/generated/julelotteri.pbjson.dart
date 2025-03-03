@@ -19,12 +19,14 @@ const Player$json = {
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'won', '3': 3, '4': 1, '5': 8, '10': 'won'},
   ],
 };
 
 /// Descriptor for `Player`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List playerDescriptor = $convert.base64Decode(
-    'CgZQbGF5ZXISDgoCaWQYASABKAVSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWU=');
+    'CgZQbGF5ZXISDgoCaWQYASABKAVSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSEAoDd29uGAMgAS'
+    'gIUgN3b24=');
 
 @$core.Deprecated('Use playerListDescriptor instead')
 const PlayerList$json = {
@@ -38,4 +40,28 @@ const PlayerList$json = {
 final $typed_data.Uint8List playerListDescriptor = $convert.base64Decode(
     'CgpQbGF5ZXJMaXN0Ei0KB3BsYXllcnMYASADKAsyEy5qdWxlbG90dGVyaS5QbGF5ZXJSB3BsYX'
     'llcnM=');
+
+@$core.Deprecated('Use importExcelFileRequestDescriptor instead')
+const ImportExcelFileRequest$json = {
+  '1': 'ImportExcelFileRequest',
+  '2': [
+    {'1': 'file_data', '3': 1, '4': 1, '5': 12, '10': 'fileData'},
+  ],
+};
+
+/// Descriptor for `ImportExcelFileRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List importExcelFileRequestDescriptor = $convert.base64Decode(
+    'ChZJbXBvcnRFeGNlbEZpbGVSZXF1ZXN0EhsKCWZpbGVfZGF0YRgBIAEoDFIIZmlsZURhdGE=');
+
+@$core.Deprecated('Use importExcelFileResponseDescriptor instead')
+const ImportExcelFileResponse$json = {
+  '1': 'ImportExcelFileResponse',
+  '2': [
+    {'1': 'success', '3': 1, '4': 1, '5': 8, '10': 'success'},
+  ],
+};
+
+/// Descriptor for `ImportExcelFileResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List importExcelFileResponseDescriptor = $convert.base64Decode(
+    'ChdJbXBvcnRFeGNlbEZpbGVSZXNwb25zZRIYCgdzdWNjZXNzGAEgASgIUgdzdWNjZXNz');
 
