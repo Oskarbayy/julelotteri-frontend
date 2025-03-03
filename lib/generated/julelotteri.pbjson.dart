@@ -17,16 +17,17 @@ import 'dart:typed_data' as $typed_data;
 const Player$json = {
   '1': 'Player',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
-    {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'won', '3': 3, '4': 1, '5': 8, '10': 'won'},
+    {'1': 'id', '3': 1, '4': 1, '5': 3, '10': 'id'},
+    {'1': 'number', '3': 2, '4': 1, '5': 5, '10': 'number'},
+    {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'won', '3': 4, '4': 1, '5': 8, '10': 'won'},
   ],
 };
 
 /// Descriptor for `Player`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List playerDescriptor = $convert.base64Decode(
-    'CgZQbGF5ZXISDgoCaWQYASABKAVSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSEAoDd29uGAMgAS'
-    'gIUgN3b24=');
+    'CgZQbGF5ZXISDgoCaWQYASABKANSAmlkEhYKBm51bWJlchgCIAEoBVIGbnVtYmVyEhIKBG5hbW'
+    'UYAyABKAlSBG5hbWUSEAoDd29uGAQgASgIUgN3b24=');
 
 @$core.Deprecated('Use playerListDescriptor instead')
 const PlayerList$json = {

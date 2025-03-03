@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:grpc/grpc.dart';
@@ -31,7 +32,7 @@ class LotteriService {
       final response = await stub.getWinner(Empty());
       return response;
     } catch (e) {
-      print('gRPC call failed: $e');
+      log('gRPC call failed: $e');
       return null;
     }
   }
@@ -49,7 +50,7 @@ class LotteriService {
       final response = await stub.importExcelFile(request);
       return response.success;
     } catch (e) {
-      print('gRPC call failed: $e');
+      log('gRPC call failed: $e');
       return false;
     }
   }
@@ -61,7 +62,7 @@ class LotteriService {
       // The response is of type PlayerList, which contains a list of players.
       return response.players;
     } catch (e) {
-      print('gRPC call failed: $e');
+      log('gRPC call failed: $e');
       return [];
     }
   }

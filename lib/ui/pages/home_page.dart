@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
           child: Container(
             alignment: Alignment.center,
             child: const Text(
-              "Julebingo",
+              "Julelotteri",
               style: TextStyle(
                 fontSize: 100,
                 fontWeight: FontWeight.bold,

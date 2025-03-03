@@ -11,17 +11,22 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Player extends $pb.GeneratedMessage {
   factory Player({
-    $core.int? id,
+    $fixnum.Int64? id,
+    $core.int? number,
     $core.String? name,
     $core.bool? won,
   }) {
     final $result = create();
     if (id != null) {
       $result.id = id;
+    }
+    if (number != null) {
+      $result.number = number;
     }
     if (name != null) {
       $result.name = name;
@@ -36,9 +41,10 @@ class Player extends $pb.GeneratedMessage {
   factory Player.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Player', package: const $pb.PackageName(_omitMessageNames ? '' : 'julelotteri'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
-    ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOB(3, _omitFieldNames ? '' : 'won')
+    ..aInt64(1, _omitFieldNames ? '' : 'id')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'number', $pb.PbFieldType.O3)
+    ..aOS(3, _omitFieldNames ? '' : 'name')
+    ..aOB(4, _omitFieldNames ? '' : 'won')
     ..hasRequiredFields = false
   ;
 
@@ -64,31 +70,40 @@ class Player extends $pb.GeneratedMessage {
   static Player? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get id => $_getIZ(0);
+  $fixnum.Int64 get id => $_getI64(0);
   @$pb.TagNumber(1)
-  set id($core.int v) { $_setSignedInt32(0, v); }
+  set id($fixnum.Int64 v) { $_setInt64(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get name => $_getSZ(1);
+  $core.int get number => $_getIZ(1);
   @$pb.TagNumber(2)
-  set name($core.String v) { $_setString(1, v); }
+  set number($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasName() => $_has(1);
+  $core.bool hasNumber() => $_has(1);
   @$pb.TagNumber(2)
-  void clearName() => clearField(2);
+  void clearNumber() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.bool get won => $_getBF(2);
+  $core.String get name => $_getSZ(2);
   @$pb.TagNumber(3)
-  set won($core.bool v) { $_setBool(2, v); }
+  set name($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasWon() => $_has(2);
+  $core.bool hasName() => $_has(2);
   @$pb.TagNumber(3)
-  void clearWon() => clearField(3);
+  void clearName() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get won => $_getBF(3);
+  @$pb.TagNumber(4)
+  set won($core.bool v) { $_setBool(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasWon() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearWon() => clearField(4);
 }
 
 class PlayerList extends $pb.GeneratedMessage {

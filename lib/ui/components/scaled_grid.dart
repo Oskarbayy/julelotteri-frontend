@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
@@ -12,11 +11,11 @@ class ScaledGrid extends StatelessWidget {
   final double textPaddingFactor;
 
   const ScaledGrid({
-    Key? key,
+    super.key,
     required this.items,
     this.relativeSpacing = 0.15,
     this.textPaddingFactor = 0.10,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

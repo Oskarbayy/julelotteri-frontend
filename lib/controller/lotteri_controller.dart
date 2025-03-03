@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
 import 'package:julelotteri_frontend/generated/julelotteri.pb.dart';
 import 'package:julelotteri_frontend/services/lotteri_service.dart';
 import 'package:flutter/foundation.dart';
@@ -11,22 +14,26 @@ class LotteriController {
   // A ValueNotifier that holds the current list of player numbers.
   final ValueNotifier<List<int>> players = ValueNotifier<List<int>>([]);
 
-  Future<void> onPlayPressed() async {
+  Future<Player?> onPlayPressed() async {
     final response = await LotteriService.instance.getWinner();
-    print(response);
-    // Optionally, reload players after a winner is selected.
+    log("\n$response");
+
+    // reload players after a winner is selected.
     await loadPlayers();
+
+    // return result to the frontend so it can display the Dialog
+    return response;
   }
 
   Future<void> loadPlayers() async {
     try {
       // getPlayers() returns a Future<List<Player>>
       List<Player> fetchedPlayers = await LotteriService.instance.getPlayers();
-      print("Fetched players: ${fetchedPlayers.length}");
+      log("Fetched players: ${fetchedPlayers.length}");
       // Update the players notifier with the numbers of players.
-      players.value = fetchedPlayers.map((p) => p.id).toList();
+      players.value = fetchedPlayers.map((p) => p.number).toList();
     } catch (e) {
-      print("Error loading players: $e");
+      log("Error loading players: $e");
     }
   }
 
@@ -48,7 +55,7 @@ class LotteriController {
       }
     } else {
       // User canceled the picker.
-      print("No file selected.");
+      log("No file selected.");
     }
   }
 }

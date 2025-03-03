@@ -7,7 +7,7 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class MainApp extends StatelessWidget {
         // This allows your body content to extend behind the AppBar.
         extendBodyBehindAppBar: true,
         appBar: CustomAppBar(), // Removed const here
-        backgroundColor: const Color(0xFFC41E3A),
-        body: const HomePage(),
+        backgroundColor: Color(0xFFC41E3A),
+        body: HomePage(),
       ),
     );
   }
