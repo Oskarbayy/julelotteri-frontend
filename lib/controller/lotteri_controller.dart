@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:julelotteri_frontend/generated/julelotteri.pb.dart';
+import 'package:julelotteri_frontend/services/database_service.dart';
 import 'package:julelotteri_frontend/services/lotteri_service.dart';
 import 'package:flutter/foundation.dart';
 
@@ -47,7 +48,8 @@ class LotteriController {
     if (result != null) {
       String? filePath = result.files.single.path;
       if (filePath != null) {
-        bool success = await LotteriService.instance.importExcelFile(filePath);
+        print("Time to import!");
+        bool success = DatabaseService.addImportToDB(filePath);
         // If successfully imported new players, reload the players list.
         if (success) {
           await loadPlayers();

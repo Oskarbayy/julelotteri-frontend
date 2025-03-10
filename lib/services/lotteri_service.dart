@@ -1,9 +1,12 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:grpc/grpc.dart';
 import 'package:julelotteri_frontend/generated/google/protobuf/empty.pb.dart';
 import 'package:julelotteri_frontend/generated/julelotteri.pbgrpc.dart';
+import 'package:julelotteri_frontend/services/internet_service.dart';
+import 'package:julelotteri_frontend/services/global_scaffold_key.dart';
 
 class LotteriService {
   // Attributtes that the service has
@@ -25,7 +28,7 @@ class LotteriService {
 
   static final LotteriService instance = LotteriService._();
 
-// Methods
+  // Methods
   Future<Player?> getWinner() async {
     try {
       // Call the gRPC method, sending an empty message.
@@ -47,8 +50,22 @@ class LotteriService {
       final request = ImportExcelFileRequest(fileData: fileBytes);
 
       // Call the gRPC method
-      final response = await stub.importExcelFile(request);
-      return response.success;
+      if (InternetService.hasConnection == true) {
+        log('User does have internet! :)');
+        final response = await stub.importExcelFile(request);
+        return response.success;
+      } else {
+        log('User doesn\'t have internet connection.');
+        final ScaffoldMessengerState? scaffold =
+            scaffoldMessengerKey.currentState;
+        scaffold?.showSnackBar(
+          const SnackBar(
+            content: Text("Test Snackbar"),
+          ),
+        );
+      }
+
+      return false;
     } catch (e) {
       log('gRPC call failed: $e');
       return false;
